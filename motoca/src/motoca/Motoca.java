@@ -1,5 +1,7 @@
 package motoca;
 
+import java.util.Scanner;
+
 class Pessoa {
 
     String nome;
@@ -14,7 +16,7 @@ class Pessoa {
 public class Motoca {
 
     Pessoa pessoa;
-    int potencia = 3;
+    int potencia = 4;
 
     public Motoca() {
         this.potencia = potencia;
@@ -43,50 +45,37 @@ public class Motoca {
             System.out.println("Muito pequeno pra andar de moto");
         } else if (this.pessoa.idade > 10) {
             System.out.println("Muito grande pra andar de moto");
-        } else if (this.potencia == 1){
+        } else if (this.potencia == 1) {
             System.out.println(this.pessoa.nome + ": RUN....");
-        }else if  (this.potencia == 2){
+        } else if (this.potencia == 2) {
             System.out.println(this.pessoa.nome + ": RUN RUN.....");
-        }else if (this.potencia == 3){
-            System.out.println(this.pessoa.nome + ":RUN RUN RUN...");
+        } else if (this.potencia == 3) {
+            System.out.println(this.pessoa.nome + ": RUN RUN RUN...");
+        } else {
+            System.out.println("Esta moto passou do limite de velocidade e provavelmente " + this.pessoa.nome + " está morto.");
         }
     }
 
     public static void main(String[] args) {
-        Pessoa davi = new Pessoa("Davi", 10);
-        {
-            Motoca moto = new Motoca();
-            moto.embarcar(davi);
-            moto.dirigir();
-            moto.desembarcar();
+        Scanner scanner = new Scanner(System.in);
+        Motoca motoca = new Motoca();
+        while (true) {
+            String line = scanner.nextLine();
+            String ui[] = line.split(" ");
+            if (ui[0].equals("end")) {
+                break;
+            } else if (ui[0].equals("embarcar")) { //nome  idade
+                int idade = Integer.parseInt(ui[2]);
+                motoca.embarcar(ui[1], idade);
+            } else if (ui[0].equals("desembarcar")) {
+                motoca.desembarcar();
+            } else if (ui[0].equals("dirigir")) {
+                motoca.dirigir();
+            } else {
+                System.out.println("Comando invalido");
+            }
         }
-        Motoca moto2 = new Motoca();
-        moto2.embarcar(davi);
-        moto2.dirigir();
-        moto2.desembarcar();
-
+        scanner.close();
     }
-    /*
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		Motoca motoca  = new Motoca();
-		while(true) {
-			String line = scanner.nextLine();
-			String ui[] = line.split(" ");
-			if(ui[0].equals("end")) {
-				break;
-			}else if(ui[0].equals("embarcar")) { //nome  idade
-				int idade = Integer.parseInt(ui[2]);
-				motoca.embarcar(ui[1], idade);
-			}else if(ui[0].equals("desembarcar")) {
-				motoca.desembarcar();
-			}else if(ui[0].equals("dirigir")) {
-				motoca.dirigir();
-			}else {
-				System.out.println("Comando invalido");
-			}
-		}
-		scanner.close();
-	}
-     */
+
 }
