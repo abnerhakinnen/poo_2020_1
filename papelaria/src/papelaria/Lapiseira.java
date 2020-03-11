@@ -4,7 +4,7 @@ package papelaria;
 public class Lapiseira {
     public String marca;
 	public double ponta;
-	public Grafite grafite;
+	public Grafitte grafite;
 	
 	public Lapiseira(double ponta, String marca) {
 		super();
@@ -23,7 +23,7 @@ public class Lapiseira {
 		System.out.println("Escrevendo");
 	}
 	
-	public void colocarGrafite(Grafite grafite) {
+	public void colocarGrafite(Grafitte grafite) {
 		if(this.ponta == ponta) {
 			this.grafite = grafite;
 		}else {
@@ -58,7 +58,7 @@ public class Lapiseira {
 	
 	
 	public static void main(String[] args) {
-		Grafite faber = new Grafite (10, 0.7);
+		Grafitte faber = new Grafitte (10, 0.7);
 		Lapiseira pentel = new Lapiseira(0.7, "Pentel");
 		pentel.escrever(4);
 		pentel.colocarGrafite(faber);

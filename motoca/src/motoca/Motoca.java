@@ -16,7 +16,8 @@ class Pessoa {
 public class Motoca {
 
     Pessoa pessoa;
-    int potencia = 4;
+    int potencia;
+    int tempo;
 
     public Motoca() {
         this.potencia = potencia;
@@ -28,6 +29,10 @@ public class Motoca {
         } else {
             System.out.println("Ja tem gente na motoca");
         }
+    }
+    
+    void pagar(){
+        
     }
 
     void desembarcar() {
@@ -41,6 +46,7 @@ public class Motoca {
     void dirigir() {
         if (this.pessoa == null) {
             System.out.println("Nao tem ninguem na moto");
+            return;
         } else if (this.pessoa.idade < 2) {
             System.out.println("Muito pequeno pra andar de moto");
         } else if (this.pessoa.idade > 10) {
@@ -66,7 +72,7 @@ public class Motoca {
                 break;
             } else if (ui[0].equals("embarcar")) { //nome  idade
                 int idade = Integer.parseInt(ui[2]);
-                motoca.embarcar(ui[1], idade);
+                motoca.embarcar(ui[1], new Pessoa = ui[1]);
             } else if (ui[0].equals("desembarcar")) {
                 motoca.desembarcar();
             } else if (ui[0].equals("dirigir")) {
